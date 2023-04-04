@@ -57,7 +57,7 @@
         <div class="grid grid-rows-4 grid-flow-col gap-4">
             <div class="w-full bg-gray-500 h-12">
                 <div class="Soli_Rep">
-                    <jsp:include page="rep_req.jsp"/>
+                    <jsp:include page="m_manager.jsp"/>
                 </div>
             </div>
 

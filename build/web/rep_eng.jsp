@@ -120,13 +120,14 @@
                                                         <label for="id_user">Seleccione un ingeniero:</label>
                                                         <select id="id_user" name="id_user">
                                                             <% 
-                                                                PreparedStatement ps2 = conn.prepareStatement("SELECT id_user, user_name FROM tbl_users where is_admin=1");
+                                                                PreparedStatement ps2 = conn.prepareStatement("SELECT id_user,user_name FROM tbl_users INNER JOIN tbl_admin_rol ON tbl_users.id_user = tbl_admin_rol.admin_id WHERE tbl_admin_rol.rol = 'Ingeniero';");
                                                                 ResultSet rs2 = ps2.executeQuery();
                                                                 while (rs2.next()) {
                                                                     int userId = rs2.getInt("id_user");
                                                                     String userName = rs2.getString("user_name");
                                                             %>
                                                             <option value="<%=userId%>"><%=userName%></option>
+      
                                                             <% 
                                                                 }
                                                             %>

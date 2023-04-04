@@ -19,24 +19,35 @@
                             </div>
                             <div class="hidden md:block">
                                 <div class="ml-10 flex items-baseline space-x-4">
+                                    <!-- Current: "bg-indigo-700 text-white", Default: "text-white hover:bg-indigo-500 hover:bg-opacity-75" -->
                                     <h1 class="text-white">Alknos Support</h1>
                                 </div>
                             </div>
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-4 flex items-center md:ml-6">
-
+                                <form action="logout.jsp">
+                                <button type="submit" id="btnSubmit" name="btnSubmit" class="rounded-md bg-stone-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-stone-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-600">Cerrar Sesión</button>
+                                </form>
                             </div>
                         </div>
                         <div class="-mr-2 flex md:hidden">
                             <!-- Mobile menu button -->
-                            <button type="button" class="inline-flex items-center justify-center rounded-md bg-stone-900 p-2 text-stone-200 hover:bg-stone-500 hover:bg-opacity-75 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-stone-600" aria-controls="mobile-menu" aria-expanded="false">
+                            <button type="button" class="inline-flex items-center justify-center rounded-md bg-stone-900 p-2 text-indigo-200 hover:bg-stone-500 hover:bg-opacity-75 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-indigo-600" aria-controls="mobile-menu" aria-expanded="false">
                                 <span class="sr-only">Open main menu</span>
-
+                                <!--
+                                  Heroicon name: outline/bars-3
+                    
+                                  Menu open: "hidden", Menu closed: "block"
+                                -->
                                 <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
-
+                                <!--
+                                  Heroicon name: outline/x-mark
+                    
+                                  Menu open: "block", Menu closed: "hidden"
+                                -->
                                 <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
@@ -76,7 +87,7 @@
                         String SQLQuery = "SELECT case_area,case_solution,case_creation_date,case_desc from tbl_case_admin"
                                 + " INNER JOIN tbl_users ON tbl_case_admin.admin_id = tbl_users.id_user"
                                 + " INNER JOIN tbl_cases ON tbl_case_admin.case_id = tbl_cases.id_case "
-                                + " WHERE admin_id=1 AND case_id=1;";
+                                + " WHERE case_id="+case_id+" ;";
                         rs = statement.executeQuery(SQLQuery);
                         while (rs.next()) {
                             String case_area = rs.getString("case_area");

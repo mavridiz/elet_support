@@ -178,7 +178,7 @@
                                                         
                                                         <label for="case_areaM">ÁREA QUE VA DIRIGIDO:</label>
                                                         <select id="case_areaM" name="case_areaM">
-                                                          <option value="Mantenimeinto">Gerente de Mantenimiento</option>
+                                                          <option value="Mantenimiento">Gerente de Mantenimiento</option>
                                                           <option value="Soporte">Gerente de Soporte</option>
                                                         </select>
                                                         <input type="hidden" name="case_last_update_date" value="<%= request.getParameter("case_last_update_date")%>">

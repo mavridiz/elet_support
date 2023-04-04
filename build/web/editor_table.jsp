@@ -26,7 +26,9 @@
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-4 flex items-center md:ml-6">
-
+                                <form action="logout.jsp">
+                                    <button type="submit" id="btnSubmit" name="btnSubmit" class="rounded-md bg-stone-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-stone-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-600">Cerrar Sesión</button>
+                                </form>
                             </div>
                         </div>
                         <div class="-mr-2 flex md:hidden">
@@ -139,21 +141,21 @@
                                                             <a href="editor_form.jsp?usr_id=<%=id_user%>&case_id=<%=id_case%>&report_name=<%=report_name%>&last_update_date=<%=last_update_date%>&status_report=<%=status_report%>&username_report=<%=username_report%>" class="text-indigo-600 hover:text-indigo-900">Redactar<span class="sr-only"></span></a>
                                                         </td>
                                                     </tr>                
-                                                    <%
-                                                                }
-                                                                statement.close();
-                                                                dbConnection.close();
-                                                            }
-                                                        } catch (SQLException e) {
-                                                            out.println("SQLException caught: " + e.getMessage());
-                                                        }
-                                                    %>
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>  
+                            <%
+                                        }
+                                        statement.close();
+                                        dbConnection.close();
+                                    }
+                                } catch (SQLException e) {
+                                    out.println("SQLException caught: " + e.getMessage());
+                                }
+                            %>
                         </div>
                     </div>
                 </div>
@@ -161,3 +163,10 @@
         </div>
     </body>
 </html>
+
+
+
+
+
+
+
